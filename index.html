@@ -35,17 +35,39 @@
       clip-path: ellipse(120% 100% at 50% 0%);
       overflow:visible;
     }
+    .hero::before{
+      content:'';
+      position:absolute;
+      inset:0;
+      background: radial-gradient(circle at 50% 30%, rgba(255,255,255,0.06), transparent 10%);
+      pointer-events:none;
+    }
+    /* stylized colorful WW shield in background */
+    .hero .ww-bg {
+      position:absolute;
+      left:50%;
+      top:14%;
+      transform:translate(-50%,-10%);
+      width:420px;
+      height:420px;
+      opacity:0.08;
+      filter: blur(1px) drop-shadow(0 6px 18px rgba(0,0,0,0.12));
+      pointer-events:none;
+    }
+
     .hero h1{
       font-family:'Comic Neue',cursive;
       margin:0;
       font-size:2.4rem;
       letter-spacing:0.6px;
       text-shadow: 0 6px 20px rgba(0,0,0,0.25);
+      position:relative; z-index:2;
     }
     .hero p.lead{
       margin:10px auto 18px;
       max-width:820px;
-      opacity:0.95;
+      opacity:0.98;
+      position:relative; z-index:2;
     }
     .gif-wrap{
       width:220px;height:220px;margin:18px auto 0; border-radius:50%;
@@ -55,6 +77,7 @@
       box-shadow:0 10px 30px rgba(0,0,0,0.18);
       transform: translateY(0);
       animation: float 4s ease-in-out infinite;
+      position:relative; z-index:2;
     }
     .gif-wrap img{ width:100%; height:100%; object-fit:cover; display:block; }
 
@@ -62,6 +85,7 @@
 
     .cta{
       margin-top:18px;
+      position:relative; z-index:2;
     }
     .btn{
       display:inline-block;padding:10px 18px;border-radius:999px;
@@ -75,6 +99,10 @@
       background:linear-gradient(90deg,var(--amarillo),#ffb84d);
       color:#111;
       box-shadow:0 8px 18px rgba(255,180,0,0.2);
+    }
+    .btn.music{
+      background:linear-gradient(90deg,#7b2cbf,#c77dff);
+      color:white;
     }
     .btn:active{ transform:translateY(2px) }
 
@@ -109,6 +137,7 @@
       .hero h1{ font-size:1.9rem }
       .card{ padding:18px }
       .countdown .box{ min-width:60px;padding:10px }
+      .hero .ww-bg{ width:300px; height:300px; top:10% }
     }
 
     /* decorative stars */
@@ -128,18 +157,35 @@
 <body>
 
   <section class="hero" id="hero">
+    <svg class="ww-bg" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <!-- Stylized, playful double-W mark (original, colorful, childlike) -->
+      <defs>
+        <linearGradient id="g1" x1="0" x2="1" y1="0" y2="1">
+          <stop offset="0" stop-color="#ff7a7a"/>
+          <stop offset="0.5" stop-color="#ffd25a"/>
+          <stop offset="1" stop-color="#6fb6ff"/>
+        </linearGradient>
+      </defs>
+      <rect width="100%" height="100%" rx="40" fill="url(#g1)"/>
+      <g transform="translate(20,40) scale(0.9)" fill="white" opacity="0.95">
+        <path d="M10 60 L30 10 L50 60 L70 10 L90 60" stroke="white" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M15 60 L35 20 L55 60 L75 20 L95 60" stroke="white" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.8"/>
+        <!-- playful W shapes -->
+      </g>
+    </svg>
+
     <h1>💫 Génesis — La pequeña heroína 💫</h1>
     <p class="lead">Érase una vez una pequeña heroína llamada <strong>Génesis</strong>, nacida con una sonrisa que conquistó corazones. ¡Ahora está por cumplir su primer año y te invita a su gran aventura!</p>
 
     <div class="gif-wrap" aria-hidden="true">
-    <img src="https://github.com/siulvm6-pixel/invitacion_Genesis/blob/gh-pages/Genesis.JPG" alt="Génesis en versión caricatura" />
-    </div>
-
+  <img src="https://github.com/siulvm6-pixel/invitacion_Genesis/blob/gh-pages/Genesis.JPG" alt="Génesis en versión caricatura" />
+</div>
 
 
     <div class="cta">
+      <a class="btn music" id="musicBtn" href="#!">🎵 Activar música</a>
       <a class="btn" id="startBtn" href="#!">Comenzar la historia</a>
-      <a class="btn secondary" href="#detalle">Ver detalles</a>
+      <a class="btn secondary" href="#cap3">Ver detalles</a>
     </div>
 
     <!-- decorative stars -->
@@ -195,17 +241,14 @@
 
   <footer>
     <div>“Y así comienza el primer capítulo de una historia llena de amor, sonrisas y aventuras.”</div>
-    <div class="closing">💖 Con amor, Adriana, Aura y José Luis 💖</div>
+    <div class="closing">💖 Con amor, Adriana, José Luis y Aura 💖</div>
   </footer>
 
-  <!-- audio controls (no autoplay) -->
-  <div style="position:fixed; right:18px; bottom:14px; z-index:9999; display:flex; gap:8px; align-items:center;">
-    <audio id="bgAudio" controls preload="none" style="border-radius:12px; box-shadow:0 8px 24px rgba(0,0,0,0.15);">
-      <!-- audio libre de derechos (ejemplo) -->
-      <source src="https://cdn.pixabay.com/download/audio/2022/08/15/audio_2e38b7f671.mp3?filename=epic-adventure-110198.mp3" type="audio/mpeg">
-      Tu navegador no soporta audio HTML5.
-    </audio>
-  </div>
+  <!-- hidden audio element -->
+  <audio id="bgAudio" preload="none">
+    <source src="https://cdn.pixabay.com/download/audio/2022/08/15/audio_2e38b7f671.mp3?filename=epic-adventure-110198.mp3" type="audio/mpeg">
+    Tu navegador no soporta audio HTML5.
+  </audio>
 
   <script>
     // Añadir estrellas decorativas aleatorias
@@ -241,8 +284,8 @@
       showNext();
     });
 
-    // also open details quickly if user uses Ver detalles
-    document.querySelectorAll('a[href="#detalle"]').forEach(a=>{
+    // Ver detalles quick
+    document.querySelectorAll('a[href="#cap3"]').forEach(a=>{
       a.addEventListener('click', function(e){ e.preventDefault(); document.getElementById('cap3').classList.add('visible'); document.getElementById('cap3').scrollIntoView({behavior:'smooth', block:'center'}); });
     });
 
@@ -253,7 +296,6 @@
     });
 
     // COUNTDOWN
-    // Ajusta la fecha aquí (formato: Month Day, Year HH:MM:SS) - is local time
     const eventDate = new Date('November 16, 2025 16:00:00');
     const dEl = document.getElementById('d'), hEl=document.getElementById('h'), mEl=document.getElementById('m'), sEl=document.getElementById('s');
     function updateCountdown(){
@@ -273,13 +315,25 @@
     updateCountdown();
     const cdInt = setInterval(updateCountdown,1000);
 
-    // small accessibility: focus states
-    document.querySelectorAll('.btn').forEach(b=>{ b.addEventListener('keydown', e=>{ if(e.key==='Enter') b.click(); }); });
-
-    // Prevent autoplay issues: do not autoplay audio; user taps to play
+    // MUSIC - controlled by user interaction
+    const musicBtn = document.getElementById('musicBtn');
     const audio = document.getElementById('bgAudio');
-    // optional: start audio when user clicks "Comenzar la historia" (if they want)
-    startBtn.addEventListener('click', ()=>{ try{ /* no auto-play to avoid blocking, but optional */ }catch(e){} });
+    let musicOn = false;
+    musicBtn.addEventListener('click', function(e){
+      e.preventDefault();
+      if(!musicOn){
+        audio.play().catch(()=>{ alert('Para reproducir la música, activa el audio en tu navegador o toca el botón de reproducción.'); });
+        musicBtn.textContent = '⏸ Pausar música';
+        musicOn = true;
+      } else {
+        audio.pause();
+        musicBtn.textContent = '🎵 Activar música';
+        musicOn = false;
+      }
+    });
+
+    // accessibility: allow Enter to activate buttons
+    document.querySelectorAll('.btn').forEach(b=>{ b.addEventListener('keydown', e=>{ if(e.key==='Enter') b.click(); }); });
 
   </script>
 </body>
