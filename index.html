@@ -1,0 +1,285 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Invitación - Génesis, 1er cumpleaños</title>
+  <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --rojo:#c1121f;
+      --amarillo:#ffd400;
+      --azul:#0b61a4;
+      --bg1: linear-gradient(160deg, rgba(193,18,31,0.95) 0%, rgba(255,212,0,0.85) 50%, rgba(11,97,164,0.95) 100%);
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:'Poppins',system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;
+      background: radial-gradient(circle at 10% 10%, rgba(255,236,179,0.12), transparent 10%),
+                  radial-gradient(circle at 90% 90%, rgba(173,216,230,0.08), transparent 10%),
+                  #fff;
+      color:#222;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      overflow-x:hidden;
+    }
+
+    /* HEADER HERO */
+    .hero {
+      background: var(--bg1);
+      color:white;
+      padding:48px 20px 72px;
+      text-align:center;
+      position:relative;
+      clip-path: ellipse(120% 100% at 50% 0%);
+      overflow:visible;
+    }
+    .hero h1{
+      font-family:'Comic Neue',cursive;
+      margin:0;
+      font-size:2.4rem;
+      letter-spacing:0.6px;
+      text-shadow: 0 6px 20px rgba(0,0,0,0.25);
+    }
+    .hero p.lead{
+      margin:10px auto 18px;
+      max-width:820px;
+      opacity:0.95;
+    }
+    .gif-wrap{
+      width:220px;height:220px;margin:18px auto 0; border-radius:50%;
+      display:flex;align-items:center;justify-content:center;
+      overflow:hidden;border:5px solid rgba(255,223,0,0.95);
+      background:linear-gradient(0deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
+      box-shadow:0 10px 30px rgba(0,0,0,0.18);
+      transform: translateY(0);
+      animation: float 4s ease-in-out infinite;
+    }
+    .gif-wrap img{ width:100%; height:100%; object-fit:cover; display:block; }
+
+    @keyframes float{0%{transform:translateY(0)}50%{transform:translateY(-10px)}100%{transform:translateY(0)}}
+
+    .cta{
+      margin-top:18px;
+    }
+    .btn{
+      display:inline-block;padding:10px 18px;border-radius:999px;
+      background:linear-gradient(90deg,var(--azul),#00a3e0);
+      color:white;text-decoration:none;font-weight:600;
+      box-shadow:0 8px 18px rgba(11,97,164,0.28);
+      transition: transform .18s ease, box-shadow .18s;
+      margin:6px;
+    }
+    .btn.secondary{
+      background:linear-gradient(90deg,var(--amarillo),#ffb84d);
+      color:#111;
+      box-shadow:0 8px 18px rgba(255,180,0,0.2);
+    }
+    .btn:active{ transform:translateY(2px) }
+
+    /* layout */
+    main{ max-width:980px;margin:-60px auto 80px;padding:20px; }
+    .card{ background:linear-gradient(180deg, rgba(255,255,255,0.95), rgba(255,255,255,0.92));
+           border-radius:18px;padding:28px;margin:20px 12px; box-shadow:0 10px 30px rgba(10,10,30,0.06);
+           opacity:0; transform:translateY(24px); transition: all .7s cubic-bezier(.2,.9,.3,1);
+         }
+    .card.visible{ opacity:1; transform:translateY(0); }
+    h2{ font-family:'Comic Neue',cursive; color:var(--rojo); margin:0 0 8px; font-size:1.35rem }
+    p{ margin:0 0 12px; color:#333; line-height:1.6; font-size:1rem }
+
+    .meta{ font-weight:600; color:#111; margin-top:8px; }
+    .links{ margin-top:14px }
+
+    /* countdown */
+    .countdown{
+      display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:6px;
+      font-weight:700;color:var(--rojo);
+    }
+    .countdown .box{ background:linear-gradient(180deg,#fff,#fff0); padding:12px 14px;border-radius:10px; min-width:74px; box-shadow:0 6px 18px rgba(0,0,0,0.06); }
+    .small{ font-size:.85rem; color:#666; font-weight:500 }
+
+    /* footer */
+    footer{ text-align:center;padding:28px 18px; color:#333; opacity:0.95;font-size:.98rem; margin-top:20px;}
+    footer .closing{ font-weight:600; margin-top:10px; color:var(--azul); }
+
+    /* responsive */
+    @media (max-width:640px){
+      .gif-wrap{ width:160px;height:160px }
+      .hero h1{ font-size:1.9rem }
+      .card{ padding:18px }
+      .countdown .box{ min-width:60px;padding:10px }
+    }
+
+    /* decorative stars */
+    .star {
+      position: absolute; width:12px;height:12px;background:gold;border-radius:50%;filter:drop-shadow(0 3px 8px rgba(0,0,0,0.18)); opacity:.9;
+      animation: sparkle 3.2s infinite ease-in-out;
+    }
+    @keyframes sparkle{0%{transform:scale(.75);opacity:.3}50%{transform:scale(1.45);opacity:1}100%{transform:scale(.75);opacity:.3}}
+    /* text-snippet style */
+    .story-line{ font-size:1.06rem; font-style:normal; color:#222; max-width:820px; margin: 0 auto; }
+
+    /* small helpers */
+    .center{ text-align:center }
+    .muted{ color:#6b6b6b; font-size:.95rem }
+  </style>
+</head>
+<body>
+
+  <section class="hero" id="hero">
+    <h1>💫 Génesis — La pequeña heroína 💫</h1>
+    <p class="lead">Érase una vez una pequeña heroína llamada <strong>Génesis</strong>, nacida con una sonrisa que conquistó corazones. ¡Ahora está por cumplir su primer año y te invita a su gran aventura!</p>
+
+    <div class="gif-wrap" aria-hidden="true">
+      <!-- GIF libre de Pixabay (caricatura baby superhero) --> 
+      <img src="https://cdn.pixabay.com/animation/2022/08/22/15/53/15-53-04-251__340.png" alt="GIF caricatura baby superhero" />
+    </div>
+
+    <div class="cta">
+      <a class="btn" id="startBtn" href="#!">Comenzar la historia</a>
+      <a class="btn secondary" href="#detalle">Ver detalles</a>
+    </div>
+
+    <!-- decorative stars -->
+    <div id="starsContainer" aria-hidden="true"></div>
+  </section>
+
+  <main>
+    <!-- cap 1 -->
+    <article class="card" id="cap1" data-seq="1">
+      <h2>📖 Capítulo 1 — Érase una vez</h2>
+      <p class="story-line">En un rincón lleno de amor, hace un año nació <strong>Génesis</strong>. Desde su primer suspiro, llenó de luz y ternura cada rincón. Sus risas son pequeñas hazañas, y su abrazo un superpoder.</p>
+    </article>
+
+    <!-- cap 2 -->
+    <article class="card" id="cap2" data-seq="2">
+      <h2>💫 Capítulo 2 — La emoción crece</h2>
+      <p class="story-line">Cada día fue una aventura: gateos, canciones y muchas sonrisas. Ahora, los preparativos comienzan y la emoción se siente en el aire. ¿Listo para acompañarnos?</p>
+
+      <div class="countdown" id="countdown">
+        <div class="box"><div id="d" style="font-size:1.25rem">--</div><div class="small">Días</div></div>
+        <div class="box"><div id="h" style="font-size:1.25rem">--</div><div class="small">Horas</div></div>
+        <div class="box"><div id="m" style="font-size:1.25rem">--</div><div class="small">Min</div></div>
+        <div class="box"><div id="s" style="font-size:1.25rem">--</div><div class="small">Seg</div></div>
+      </div>
+    </article>
+
+    <!-- cap 3 -->
+    <article class="card" id="cap3" data-seq="3">
+      <h2>🎂 Capítulo 3 — La gran celebración</h2>
+      <p class="story-line">
+        📅 <strong>16 de noviembre</strong><br>
+        🕓 <strong>4:00 p.m.</strong><br>
+        📍 <strong>Salón La Pérgola Jardín</strong><br>
+        Calle Manuel Castellanos Castellanos No. 5, Col. Anexo 31 de Marzo
+      </p>
+      <div class="links">
+        <a class="btn" href="https://www.google.com/maps/search/?api=1&query=Sal%C3%B3n+La+P%C3%A9rgola+Jard%C3%ADn,+Calle+Manuel+Castellanos+Castellanos+No.+5,+Col.+Anexo+31+de+Marzo" target="_blank" rel="noopener">📍 Ver ubicación</a>
+      </div>
+    </article>
+
+    <!-- cap 4 -->
+    <article class="card" id="cap4" data-seq="4">
+      <h2>💬 Capítulo 4 — Confirma tu misión</h2>
+      <p class="story-line">La Liga de la familia está organizando todo para la gran fiesta. Confirma si podrás unirte para que podamos reservar tu lugar en esta aventura maravillosa.</p>
+      <div class="links">
+        <!-- WhatsApp link con tu número (México +52) -->
+        <a class="btn" href="https://wa.me/529671213792?text=%C2%A1Hola!%20Confirmo%20mi%20asistencia%20al%20primer%20cumplea%C3%B1os%20de%20G%C3%A9nesis.%20%F0%9F%8E%89" target="_blank" rel="noopener">✅ Confirmar asistencia</a>
+        <a class="btn secondary" href="#!" id="noAsist">❌ No podré asistir</a>
+      </div>
+      <p class="muted" style="margin-top:12px">Con cariño,<br><strong>Adriana, José Luis y su hermanita Aura</strong></p>
+    </article>
+  </main>
+
+  <footer>
+    <div>“Y así comienza el primer capítulo de una historia llena de amor, sonrisas y aventuras.”</div>
+    <div class="closing">💖 Con amor, Adriana, José Luis y Aura 💖</div>
+  </footer>
+
+  <!-- audio controls (no autoplay) -->
+  <div style="position:fixed; right:18px; bottom:14px; z-index:9999; display:flex; gap:8px; align-items:center;">
+    <audio id="bgAudio" controls preload="none" style="border-radius:12px; box-shadow:0 8px 24px rgba(0,0,0,0.15);">
+      <!-- audio libre de derechos (ejemplo) -->
+      <source src="https://cdn.pixabay.com/download/audio/2022/08/15/audio_2e38b7f671.mp3?filename=epic-adventure-110198.mp3" type="audio/mpeg">
+      Tu navegador no soporta audio HTML5.
+    </audio>
+  </div>
+
+  <script>
+    // Añadir estrellas decorativas aleatorias
+    (function createStars(){
+      const cont = document.getElementById('starsContainer');
+      if(!cont) return;
+      for(let i=0;i<12;i++){
+        const s = document.createElement('div');
+        s.className='star';
+        s.style.left = (5 + Math.random()*90)+'%';
+        s.style.top = (6 + Math.random()*50)+'%';
+        s.style.width = (6 + Math.random()*14)+'px';
+        s.style.height = s.style.width;
+        s.style.animationDelay = (Math.random()*3)+'s';
+        cont.appendChild(s);
+      }
+    })();
+
+    // sección por sección: mostrar con animación cuando se pulse empezar
+    const seq = [...document.querySelectorAll('.card')];
+    const startBtn = document.getElementById('startBtn');
+    startBtn.addEventListener('click', (e)=>{
+      e.preventDefault();
+      // mostrar secuencialmente
+      let idx=0;
+      function showNext(){
+        if(idx>=seq.length) { seq[seq.length-1].scrollIntoView({behavior:'smooth', block:'center'}); return; }
+        seq[idx].classList.add('visible');
+        seq[idx].scrollIntoView({behavior:'smooth', block:'center'});
+        idx++;
+        setTimeout(showNext, 700);
+      }
+      showNext();
+    });
+
+    // also open details quickly if user uses Ver detalles
+    document.querySelectorAll('a[href="#detalle"]').forEach(a=>{
+      a.addEventListener('click', function(e){ e.preventDefault(); document.getElementById('cap3').classList.add('visible'); document.getElementById('cap3').scrollIntoView({behavior:'smooth', block:'center'}); });
+    });
+
+    // "No podré asistir" —marca y agradece
+    document.getElementById('noAsist').addEventListener('click', function(e){
+      e.preventDefault();
+      alert('Gracias por avisar. Te extrañaremos en la fiesta 💖');
+    });
+
+    // COUNTDOWN
+    // Ajusta la fecha aquí (formato: Month Day, Year HH:MM:SS) - is local time
+    const eventDate = new Date('November 16, 2025 16:00:00');
+    const dEl = document.getElementById('d'), hEl=document.getElementById('h'), mEl=document.getElementById('m'), sEl=document.getElementById('s');
+    function updateCountdown(){
+      const now = new Date();
+      const diff = eventDate - now;
+      if(diff <= 0){
+        dEl.textContent = '0'; hEl.textContent='0'; mEl.textContent='0'; sEl.textContent='0';
+        clearInterval(cdInt);
+        return;
+      }
+      const days = Math.floor(diff/(1000*60*60*24));
+      const hours = Math.floor((diff%(1000*60*60*24))/(1000*60*60));
+      const mins = Math.floor((diff%(1000*60*60))/(1000*60));
+      const secs = Math.floor((diff%(1000*60))/1000);
+      dEl.textContent = days; hEl.textContent = hours; mEl.textContent = mins; sEl.textContent = secs;
+    }
+    updateCountdown();
+    const cdInt = setInterval(updateCountdown,1000);
+
+    // small accessibility: focus states
+    document.querySelectorAll('.btn').forEach(b=>{ b.addEventListener('keydown', e=>{ if(e.key==='Enter') b.click(); }); });
+
+    // Prevent autoplay issues: do not autoplay audio; user taps to play
+    const audio = document.getElementById('bgAudio');
+    // optional: start audio when user clicks "Comenzar la historia" (if they want)
+    startBtn.addEventListener('click', ()=>{ try{ /* no auto-play to avoid blocking, but optional */ }catch(e){} });
+
+  </script>
+</body>
+</html>
