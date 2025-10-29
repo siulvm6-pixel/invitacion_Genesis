@@ -206,6 +206,11 @@
       }
       showNext();
     });
+// "No podré asistir" —marca y agradece
+    document.getElementById('noAsist').addEventListener('click', function(e){
+      e.preventDefault();
+      alert('Gracias por avisar. Te extrañaremos en la fiesta 💖');
+    });
 
     const eventDate=new Date('November 16, 2025 16:00:00');
     const d=document.getElementById('d'),h=document.getElementById('h'),m=document.getElementById('m'),s=document.getElementById('s');
