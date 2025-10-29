@@ -14,22 +14,7 @@
     }
     *{box-sizing:border-box}
     body{
-      /*1:00pm*/
-      <div class="stars"></div>
-      <div class="twinkling"></div>
-
-      margin:0;
-      font-family:'Poppins',system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;
-      background: radial-gradient(circle at 10% 10%, rgba(255,236,179,0.12), transparent 10%),
-                  radial-gradient(circle at 90% 90%, rgba(173,216,230,0.08), transparent 10%),
-                  #fff;
-      color:#222;
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
-      overflow-x:hidden;
-    }
-
-    .hero {
+     .hero {
       background-image: url("wallpaper-wonder-woman.jpg");
       background-size: cover;
       background-position: center;
@@ -142,44 +127,7 @@
     /* small helpers */
     .center{ text-align:center }
     .muted{ color:#6b6b6b; font-size:.95rem }
-  /*1:01*/
-    /* 🌟 Fondo de estrellas animadas */
-.stars, .twinkling {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  display: block;
-  z-index: 0;
-}
-
-.stars {
-  background: url("https://www.transparenttextures.com/patterns/stardust.png") repeat;
-  animation: moveStars 200s linear infinite;
-}
-
-.twinkling {
-  background: url("https://www.transparenttextures.com/patterns/tiny-stars.png") repeat;
-  animation: moveTwinkling 100s linear infinite;
-  opacity: 0.7;
-}
-
-@keyframes moveStars {
-  from { background-position: 0 0; }
-  to { background-position: 10000px 5000px; }
-}
-
-@keyframes moveTwinkling {
-  from { background-position: 0 0; }
-  to { background-position: -10000px 5000px; }
-}
-
-/* Asegura que el contenido esté sobre el fondo */
-.hero, main, footer {
-  position: relative;
-  z-index: 2;
-}/*1:02pm*/
+  
   </style>
 </head>
 <body>
