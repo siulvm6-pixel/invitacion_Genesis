@@ -233,7 +233,7 @@
       e.preventDefault();
       let i=0;
       function showNext(){
-        if(i>=seq.length)return;
+        if(i>=seq.length) /*12:53*/{ seq[seq.length-1].scrollIntoView({behavior:'smooth', block:'center'}); return;
         seq[i].classList.add('visible');
         seq[i].scrollIntoView({behavior:'smooth',block:'center'});
         i++;
