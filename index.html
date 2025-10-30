@@ -195,6 +195,23 @@
 
   <script>
     /*30-10-25 10:31*/
+
+    // Añadir estrellas decorativas aleatorias
+    (function createStars(){
+      const cont = document.getElementById('starsContainer');
+      if(!cont) return;
+      for(let i=0;i<12;i++){
+        const s = document.createElement('div');
+        s.className='star';
+        s.style.left = (5 + Math.random()*90)+'%';
+        s.style.top = (6 + Math.random()*50)+'%';
+        s.style.width = (6 + Math.random()*14)+'px';
+        s.style.height = s.style.width;
+        s.style.animationDelay = (Math.random()*3)+'s';
+        cont.appendChild(s);
+      }
+    })();
+
     
     const seq = [...document.querySelectorAll('.card')];
     document.getElementById('startBtn').addEventListener('click', (e)=>{
